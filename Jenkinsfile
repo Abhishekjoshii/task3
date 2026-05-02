@@ -1,8 +1,6 @@
 pipeline {
     agent any
 
-    bat 'mvn clean package'
-
     stages {
         stage('Build') {
             steps {
@@ -10,7 +8,7 @@ pipeline {
             }
         }
 
-        stage('Deploy to Tomcat') {
+        stage('Deploy') {
             steps {
                 bat 'copy target\\*.war C:\\apache-tomcat-9.0\\webapps\\'
             }
